@@ -12,6 +12,10 @@ class Calculator
       delimiter = Regexp.escape(delimiter_spec[2..])
     end
 
-    numbers.split(/#{delimiter}/).map(&:to_i)
+    nums = numbers.split(/#{delimiter}/).map(&:to_i)
+    negatives = nums.select { |n| n < 0 }
+    raise "negatives not allowed: #{negatives.first}" if negatives.any?
+
+    nums
   end
 end
