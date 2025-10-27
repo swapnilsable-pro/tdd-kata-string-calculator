@@ -14,7 +14,7 @@ class Calculator
 
     nums = numbers.split(/#{delimiter}/).map(&:to_i)
     negatives = nums.select { |n| n < 0 }
-    raise "negatives not allowed: #{negatives.first}" if negatives.any?
+    raise "negatives not allowed: #{negatives.join(',')}" if negatives.any?
 
     nums
   end

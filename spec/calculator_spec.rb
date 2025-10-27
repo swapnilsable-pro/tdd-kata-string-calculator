@@ -25,5 +25,9 @@ RSpec.describe Calculator do
     it "raises an error for negative numbers" do
       expect { Calculator.add("1,-2,3") }.to raise_error("negatives not allowed: -2")
     end
+
+    it "handles multiple negative numbers" do
+      expect { Calculator.add("-1,-2,3") }.to raise_error("negatives not allowed: -1,-2")
+    end
   end
 end
