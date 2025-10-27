@@ -20,7 +20,9 @@ class Calculator
     delimiter = ",|\n"
     if numbers.start_with?("//")
       delimiter_spec, numbers = numbers.split("\n", 2)
-      delimiter = Regexp.escape(delimiter_spec[2..])
+      delimiters = delimiter_spec.scan(/\[(.*?)\]/).flatten
+      delimiters = [delimiter_spec[2]] if delimiters.empty?
+      delimiter = delimiters
     end
 
     nums = numbers.split(/#{delimiter}/).map(&:to_i)
