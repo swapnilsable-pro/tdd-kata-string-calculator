@@ -13,5 +13,9 @@ RSpec.describe Calculator do
     it "returns the sum for a two number string" do
       expect(Calculator.add("2,3")).to eq(5)
     end
+
+    it "handles multiple delimiters" do
+      expect(Calculator.add("1\n2,3")).to eq(6)
+    end
   end
 end
