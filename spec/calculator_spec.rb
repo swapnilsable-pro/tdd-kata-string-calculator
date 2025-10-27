@@ -31,6 +31,10 @@ RSpec.describe Calculator do
     it "handles multiple negative numbers" do
       expect { calculator.add("-1,-2,3") }.to raise_error("negatives not allowed: -1,-2")
     end
+
+    it "ignores numbers greater than 1000" do
+      expect(calculator.add("2,1001")).to eq(2)
+    end
   end
 
   describe ".get_called_count" do

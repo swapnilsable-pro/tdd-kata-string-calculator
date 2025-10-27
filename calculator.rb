@@ -24,6 +24,7 @@ class Calculator
     end
 
     nums = numbers.split(/#{delimiter}/).map(&:to_i)
+    nums = nums.select { |n| n <= 1000 }
     negatives = nums.select { |n| n < 0 }
     raise "negatives not allowed: #{negatives.join(',')}" if negatives.any?
 
