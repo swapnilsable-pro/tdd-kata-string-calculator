@@ -3,7 +3,7 @@ require_relative '../calculator'
 RSpec.describe Calculator do
   let(:calculator) { described_class.new }
 
-  describe ".add" do
+  describe "#add" do
     it "returns 0 for an empty string" do
       expect(calculator.add("")).to eq(0)
     end
@@ -49,7 +49,7 @@ RSpec.describe Calculator do
     end
   end
 
-  describe ".get_called_count" do
+  describe "#get_called_count" do
     it "returns the number of times add has been called" do
       3.times { calculator.add("1,2") }
       expect(calculator.get_called_count).to eq(3)
